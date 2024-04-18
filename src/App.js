@@ -1,8 +1,13 @@
-import logo from "./logo.svg";
-import "./App.css";
+import Counter from "./counter/Counter";
+import PostList from "./userPosts/PostList";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <div />
+      <Counter />
+    </div>
+  );
 }
 
 export default App;

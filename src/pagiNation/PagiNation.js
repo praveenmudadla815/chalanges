@@ -51,16 +51,30 @@ const PagiNation = () => {
   //       alert(`Please enter a valid page number between 1 and ${totalPages}`);
   //     }
   //   };
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+  //   const handleKeyDown = (e) => {
+  //     if (e.key === "Enter") {
+  //       const pageNumber = parseInt(inputPage);
+  //       if (pageNumber > 0 && pageNumber <= totalPages) {
+  //         setCurrentPage(pageNumber);
+  //         setInputPage("");
+  //       } else {
+  //         alert(`Please enter a valid page number between 1 and ${totalPages}`);
+  //       }
+  //     }
+  //   };
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
       const pageNumber = parseInt(inputPage);
       if (pageNumber > 0 && pageNumber <= totalPages) {
         setCurrentPage(pageNumber);
-        setInputPage("");
-      } else {
-        alert(`Please enter a valid page number between 1 and ${totalPages}`);
       }
-    }
+    }, 1000);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [inputPage, totalPages]);
+
+  const handleInputChange = (e) => {
+    setInputPage(e.target.value);
   };
   return (
     <div>
@@ -79,8 +93,8 @@ const PagiNation = () => {
       <input
         type="text"
         value={inputPage}
-        onKeyDown={handleKeyDown}
-        onChange={(e) => setInputPage(e.target.value)}
+        // onKeyDown={handleKeyDown}
+        onChange={handleInputChange}
         placeholder="Enter Page Number"
       />
       {/* <button onClick={goToPage}>Go to Page</button> */}

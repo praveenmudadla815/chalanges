@@ -13,12 +13,29 @@ const useCounter = (intialCount, MaxCount) => {
       setCount((count) => count - 1);
     }
   };
+  const getColor = () => {
+    if (count % 2 === 0) {
+      return "green"; // Even numbers
+    } else if (isPrime(count)) {
+      return "pink"; // Prime numbers
+    } else {
+      return "blue"; // Odd non-prime numbers
+    }
+  };
+
+  const isPrime = (num) => {
+    for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+      if (num % i === 0) return false;
+    }
+    return num > 1;
+  };
   return {
     count,
     Increment,
     Decrement,
     isMin: count === 0,
     isMax: count === MaxCount,
+    color: getColor(),
   };
 };
 

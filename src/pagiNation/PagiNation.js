@@ -4,6 +4,7 @@ const PagiNation = () => {
   const [users, setUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [inputPage, setInputPage] = useState("");
 
   //   useEffect(() => {
   //     fetch("https://jsonplaceholder.typicode.com/users")
@@ -41,6 +42,26 @@ const PagiNation = () => {
   const next = () => {
     setCurrentPage((currentPage) => currentPage + 1);
   };
+  //   const goToPage = () => {
+  //     const pageNumber = parseInt(inputPage);
+  //     if (pageNumber > 0 && pageNumber <= totalPages) {
+  //       setCurrentPage(pageNumber);
+  //       setInputPage("");
+  //     } else {
+  //       alert(`Please enter a valid page number between 1 and ${totalPages}`);
+  //     }
+  //   };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      const pageNumber = parseInt(inputPage);
+      if (pageNumber > 0 && pageNumber <= totalPages) {
+        setCurrentPage(pageNumber);
+        setInputPage("");
+      } else {
+        alert(`Please enter a valid page number between 1 and ${totalPages}`);
+      }
+    }
+  };
   return (
     <div>
       {users.map((user) => (
@@ -55,6 +76,14 @@ const PagiNation = () => {
       <span>
         {currentPage} of {totalPages}
       </span>
+      <input
+        type="text"
+        value={inputPage}
+        onKeyDown={handleKeyDown}
+        onChange={(e) => setInputPage(e.target.value)}
+        placeholder="Enter Page Number"
+      />
+      {/* <button onClick={goToPage}>Go to Page</button> */}
       <button onClick={next} disabled={currentPage === totalPages}>
         Next
       </button>

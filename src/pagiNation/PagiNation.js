@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const FetchMethod = () => {
+const PagiNation = () => {
   const [users, setUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -62,4 +62,4 @@ const FetchMethod = () => {
   );
 };
 
-export default FetchMethod;
+export default PagiNation;

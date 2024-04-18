@@ -1,5 +1,4 @@
 import Counter from "./counter/Counter";
-import PostList from "./userPosts/PostList";
 
 function App() {
   return (

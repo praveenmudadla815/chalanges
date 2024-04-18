@@ -21,11 +21,19 @@ const Counter = () => {
         justifyContent: "center",
       }}
     >
-      <button onClick={IncresehandelSubmit} disabled={count === 10}>
+      <button
+        onClick={IncresehandelSubmit}
+        disabled={count === 10}
+        style={{ backgroundColor: count === 10 ? "green" : "" }}
+      >
         Inc
       </button>
       {count}
-      <button onClick={DecreasehandelSubmit} disabled={count === 0}>
+      <button
+        onClick={DecreasehandelSubmit}
+        disabled={count === 0}
+        style={{ backgroundColor: count === 0 ? "red" : "" }}
+      >
         Dec
       </button>
     </div>

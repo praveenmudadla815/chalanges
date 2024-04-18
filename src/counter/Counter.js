@@ -13,6 +13,22 @@ const Counter = () => {
       setCount((count) => count - 1);
     }
   };
+
+  const getColor = () => {
+    if (count % 2 === 0) {
+      return "green";
+    } else if (isPrime(count)) {
+      return "pink";
+    } else {
+      return "blue";
+    }
+  };
+  const isPrime = (num) => {
+    for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+      if (num % i === 0) return false;
+    }
+    return num > 1;
+  };
   return (
     <div
       style={{
@@ -28,7 +44,11 @@ const Counter = () => {
       >
         Inc
       </button>
-      {count}
+      <div style={{ backgroundColor: getColor(), padding: "10px" }}>
+        {" "}
+        {count}
+      </div>
+
       <button
         onClick={DecreasehandelSubmit}
         disabled={count === 0}

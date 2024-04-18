@@ -14,7 +14,15 @@ const InputColor = () => {
         onChange={handelChange}
       />
 
-      <div style={{ backgroundColor: color, width: "150px" }}></div>
+      <div
+        style={{
+          backgroundColor: color,
+          width: "150px",
+          marginTop: "20px",
+          height: "150px",
+          padding: "25px",
+        }}
+      ></div>
     </div>
   );
 };

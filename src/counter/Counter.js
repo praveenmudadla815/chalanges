@@ -4,10 +4,14 @@ const Counter = () => {
   const [count, setCount] = useState(0);
 
   const IncresehandelSubmit = () => {
-    setCount((count) => count + 1);
+    if (count < 10) {
+      setCount((count) => count + 1);
+    }
   };
   const DecreasehandelSubmit = () => {
-    setCount((count) => count - 1);
+    if (count > 0) {
+      setCount((count) => count - 1);
+    }
   };
   return (
     <div
@@ -17,9 +21,13 @@ const Counter = () => {
         justifyContent: "center",
       }}
     >
-      <button onClick={IncresehandelSubmit}>Inc</button>
+      <button onClick={IncresehandelSubmit} disabled={count === 10}>
+        Inc
+      </button>
       {count}
-      <button onClick={DecreasehandelSubmit}>Dec</button>
+      <button onClick={DecreasehandelSubmit} disabled={count === 0}>
+        Dec
+      </button>
     </div>
   );
 };

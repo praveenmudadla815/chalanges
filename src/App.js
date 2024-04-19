@@ -2,6 +2,7 @@ import FetchMethod from "./UsingFetchMethod/FetchMethod";
 import Counter from "./counter/Counter";
 import CounterCustom from "./counter/customHookforCounter/CounterCustom";
 import InputColor from "./inputcolorchange/InputColor";
+import AccessibleButton from "./pagiNation/PagiNation";
 import PagiNation from "./pagiNation/PagiNation";
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       <div>
         {/* <InputColor /> */}
         {/* <FetchMethod /> */}
-        <PagiNation />
+        {/* <PagiNation /> */}
       </div>
     </div>
   );
